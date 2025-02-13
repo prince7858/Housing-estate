@@ -46,8 +46,8 @@ Before running the project, make sure you have:
 ---
 
 ## 📸 Demo Video
-📉 **[Attach a screen recording here]**  
-(Upload your screen recording to GitHub and add the link here.)
+[Click here to watch the demo](https://drive.google.com/file/d/175Gio91QFv-JSHMcgxkVx4Ln1YXMSaEb/view?usp=drivesdk)
+
 
 ---
 
