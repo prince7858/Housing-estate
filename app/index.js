@@ -23,7 +23,7 @@ export default function HomeScreen() {
             style={styles.card}
             onPress={() => router.push(`/details?id=${item.id}`)}
           >
-            <Image source={{ uri: item.image }} style={styles.image} />
+            <Image source={{ uri: item.imagerUrl }} style={styles.image} />
             <Text style={styles.title}>{item.address}</Text>
             <Text style={styles.description}>{item.description}</Text>
           </TouchableOpacity>

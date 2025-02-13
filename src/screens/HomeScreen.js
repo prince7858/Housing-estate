@@ -19,7 +19,7 @@ export default function HomeScreen({ navigation }) {
             style={styles.card}
             onPress={() => navigation.navigate('Details', { house: item })}
           >
-            <Image source={{ uri: item.image }} style={styles.image} />
+            <Image source={{ uri: item.imagerUrl }} style={styles.image} />
             <Text style={styles.title}>{item.address}</Text>
             <Text>{item.description}</Text>
           </TouchableOpacity>

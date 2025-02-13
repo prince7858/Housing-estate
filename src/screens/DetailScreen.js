@@ -32,7 +32,7 @@ export default function DetailScreen({ route }) {
 
   return (
     <View style={styles.container}>
-      <Image source={{ uri: house.image }} style={styles.image} />
+      <Image source={{ uri: house.imagerUrl }} style={styles.image} />
       <Text style={styles.title}>{house.address}</Text>
       <Text>{house.description}</Text>
       {isNearby ? (

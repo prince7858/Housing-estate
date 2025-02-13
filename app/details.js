@@ -42,7 +42,7 @@ export default function DetailsScreen() {
 
   return (
     <View style={styles.container}>
-      <Image source={{ uri: house.image }} style={styles.image} />
+      <Image source={{ uri: house.imagerUrl }} style={styles.image} />
       <Text style={styles.title}>{house.address}</Text>
       <Text style={styles.description}>{house.description}</Text>
       {isNearby ? (
