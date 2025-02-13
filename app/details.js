@@ -18,25 +18,36 @@ export default function DetailsScreen() {
 
   useEffect(() => {
     (async () => {
+      if (!house) return; // ✅ Prevents the error if house is undefined
+  
       let { status } = await Location.requestForegroundPermissionsAsync();
       if (status !== 'granted') {
         Alert.alert('Permission denied', 'Location permission is required to unlock homes.');
         return;
       }
+      
       let userLocation = await Location.getCurrentPositionAsync({});
       setLocation(userLocation.coords);
-
-      const distance = Math.sqrt(
-        Math.pow(userLocation.coords.latitude - house.latitude, 2) +
-        Math.pow(userLocation.coords.longitude - house.longitude, 2)
-      );
-      setIsNearby(distance < 0.0003); // Roughly 30m
+  
+      //  Check if house has latitude and longitude
+      if (house.latitude && house.longitude) {
+        const distance = Math.sqrt(
+          Math.pow(userLocation.coords.latitude - house.latitude, 2) +
+          Math.pow(userLocation.coords.longitude - house.longitude, 2)
+        );
+        setIsNearby(distance < 0.0003); // Roughly 30m
+      }
     })();
-  }, []);
+  }, [house]); //  Added dependency to re-run effect when house is available
+  
 
   const handleUnlock = () => {
-    Alert.alert('Success', 'Home unlocked successfully!');
+    Alert.alert('Unlocking...', 'Please wait');
+    setTimeout(() => {
+      Alert.alert('Success', 'Home unlocked successfully!');
+    }, 2000); // Simulates a 2-second API call
   };
+  
 
   if (!house) return <Text>Loading...</Text>;
 
